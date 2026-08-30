@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIAN CITYCAT - Main Hub</title>
+<style>
+:root{--bg:#0b0b0f;--card:#17171d;--border:#262631;--text:#f5f5f7;--muted:#9ca3af;--accent:#3b82f6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;min-height:100vh}
+header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.wrap{max-width:900px;margin:0 auto;padding:50px 20px 80px;text-align:center}
+h1{font-size:clamp(2.8rem,6vw,4rem);margin:0;line-height:1} h1 span{background:linear-gradient(90deg,#22d3ee,#a78bfa,#fbbf24);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);margin:14px auto 0;max-width:640px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:40px auto 0;max-width:760px;text-align:left}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:28px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#3a3a4a}
+.card.hub{border-color:var(--accent);box-shadow:0 0 0 1px rgba(59,130,246,.2),0 0 32px rgba(59,130,246,.12)}
+.btn{display:inline-block;margin-top:14px;padding:12px 18px;border-radius:12px;background:#fff;color:#000;font-weight:800;text-decoration:none}
+.btn.blue{background:var(--accent);color:#fff} .btn.green{background:#22c55e;color:#000}
+.ext{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.ext a{padding:6px 12px;border-radius:999px;background:#1a1a20;border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:.8rem}
+.note{margin-top:36px;padding:14px;border:1px dashed #2a2a35;border-radius:12px;background:#101015;color:var(--muted);font-size:.78rem;font-family:monospace;text-align:left;max-width:760px;margin-left:auto;margin-right:auto}
+</style>
+</head>
+<body>
+<header>
+<div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#22d3ee,#a78bfa,#f59e0b);display:flex;align-items:center;justify-content:center;font-weight:800;color:#000">C</div><div style="font-weight:800">CIAN CITYCAT / JinSoo Jang</div></div>
+<div style="font-family:monospace;font-size:.75rem;color:#9ca3af">EN</div>
+</header>
+<div class="wrap">
+<h1>Main <span>Hub</span></h1>
+<p class="sub">You have 3 repos. This repo <b>jinsoojang-da.github.io</b> is the root hub that links to them. Create this repo to fix the 404 at https://jinsoojang-da.github.io/</p>
+<div class="grid">
+<div class="card hub">
+<div style="font-size:2.2rem">📚</div>
+<h2>my-learning-blog</h2>
+<p class="sub" style="margin:8px 0 0;text-align:left;font-size:.9rem">Daily Blog + da-project 3 + learning-room (CSS 7 labs / JS DOM + Fotogram)</p>
+<a class="btn blue" href="https://jinsoojang-da.github.io/my-learning-blog/" target="_blank">Enter Learning Blog →</a>
+<div class="ext">
+<a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/MeinPC_Website/index.html" target="_blank">MeinPC</a>
+<a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/Reiseblog/index.html" target="_blank">Reiseblog</a>
+<a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/sakura_ramen_responsive/index.html" target="_blank">Sakura</a>
+</div>
+</div>
+<div class="card">
+<div style="font-size:2.2rem">📓</div>
+<h2>learning_diary</h2>
+<p class="sub" style="margin:8px 0 0;text-align:left;font-size:.9rem">Daily learning log - separate repo</p>
+<a class="btn green" href="https://jinsoojang-da.github.io/learning_diary/" target="_blank">Enter Diary →</a>
+<div class="ext">
+<a href="https://jinsoojang-da.github.io/JinSooJang-DA/" target="_blank">Old Main (JinSooJang-DA)</a>
+</div>
+</div>
+</div>
+
+<div class="note">
+HOW TO FIX 404:<br>
+1. Click New repository (green button in your screenshot)<br>
+2. Repository name: <b>jinsoojang-da.github.io</b> (exactly this, lowercase)<br>
+3. Public + Add a README<br>
+4. Create, then Add file → Create new file → name: <b>index.html</b> → paste this file's code → Commit<br>
+5. Settings → Pages → Branch: main / (root) → Save<br>
+6. Wait 1 min → https://jinsoojang-da.github.io/ will show this hub, not 404<br>
+After that, https://jinsoojang-da.github.io/my-learning-blog/ and /learning_diary/ and /JinSooJang-DA/ all remain working as separate project pages linked from here.
+</div>
+</div>
+</body>
+</html>
