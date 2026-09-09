@@ -1,65 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jin Soo Jang - Main Hub</title>
-<style>
-:root{--bg:#0b0b0f;--card:#17171d;--border:#262631;--text:#f5f5f7;--muted:#9ca3af;--accent:#3b82f6}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;min-height:100vh}
-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.wrap{max-width:900px;margin:0 auto;padding:50px 20px 80px;text-align:center}
-h1{font-size:clamp(2.8rem,6vw,4rem);margin:0;line-height:1} h1 span{background:linear-gradient(90deg,#22d3ee,#a78bfa,#fbbf24);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{color:var(--muted);margin:14px auto 0;max-width:640px;line-height:1.6}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:40px auto 0;max-width:760px;text-align:left}
-@media(max-width:760px){.grid{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:28px;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:#3a3a4a}
-.card.hub{border-color:var(--accent);box-shadow:0 0 0 1px rgba(59,130,246,.2),0 0 32px rgba(59,130,246,.12)}
-.btn{display:inline-block;margin-top:14px;padding:12px 18px;border-radius:12px;background:#fff;color:#000;font-weight:800;text-decoration:none}
-.btn.blue{background:var(--accent);color:#fff} .btn.green{background:#22c55e;color:#000}
-.ext{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.ext a{padding:6px 12px;border-radius:999px;background:#1a1a20;border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:.8rem}
-.note{margin-top:36px;padding:14px;border:1px dashed #2a2a35;border-radius:12px;background:#101015;color:var(--muted);font-size:.78rem;font-family:monospace;text-align:left;max-width:760px;margin-left:auto;margin-right:auto}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jin Soo Jang - Developer Hub</title>
+  <!-- Google Fonts for Clean Modern Look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --accent-color: #ff5a5f;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 8px 18px rgba(0, 0, 0, 0.08);
+      --radius-card: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.4;
+      padding-bottom: 60px;
+    }
+
+    /* Compact Header */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .logo-badge {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #ff5a5f, #ff8a65);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Container */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 30px 20px 0;
+    }
+
+    /* Hero Banner */
+    .hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .hero h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Section Headers */
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .section-title h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-count {
+      background: #e0f2fe;
+      color: #0284c7;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 99px;
+      font-weight: 700;
+    }
+
+    /* Mini-Box Grid (Compact Size) */
+    .grid-mini {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .mini-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 16px 12px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 105px;
+      position: relative;
+    }
+
+    .mini-card.completed {
+      cursor: pointer;
+    }
+
+    .mini-card.completed:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: #cbd5e1;
+    }
+
+    .mini-card .icon {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      transition: transform 0.2s;
+    }
+
+    .mini-card.completed:hover .icon {
+      transform: scale(1.08);
+    }
+
+    .mini-card .title {
+      font-weight: 700;
+      font-size: 0.83rem;
+      line-height: 1.2;
+    }
+
+    .mini-card.locked {
+      filter: grayscale(100%);
+      opacity: 0.5;
+      background: #f1f5f9;
+      border-style: dashed;
+      cursor: not-allowed;
+    }
+
+    .mini-card.locked::after {
+      content: 'Upcoming';
+      position: absolute;
+      bottom: 6px;
+      font-size: 0.58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--text-muted);
+    }
+
+    hr.divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 10px 0 36px;
+    }
+
+    /* Learning Room Section Grid */
+    .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .learning-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .learning-card.active:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .learning-card.upcoming {
+      opacity: 0.65;
+      background: #f8fafc;
+      border-style: dashed;
+    }
+
+    .learning-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .learning-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .bg-html { background: #ffedd5; color: #ea580c; }
+    .bg-css { background: #e0f2fe; color: #0284c7; }
+    .bg-js { background: #fef9c3; color: #ca8a04; }
+    .bg-api { background: #dcfce7; color: #16a34a; }
+    .bg-fw { background: #f3e8ff; color: #9333ea; }
+    .bg-backend { background: #ffe4e6; color: #e11d48; }
+
+    .learning-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .learning-desc {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-<header>
-<div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#22d3ee,#a78bfa,#f59e0b);display:flex;align-items:center;justify-content:center;font-weight:800;color:#000">C</div><div style="font-weight:800">CIAN CITYCAT / JinSoo Jang</div></div>
-<div style="font-family:monospace;font-size:.75rem;color:#9ca3af">EN</div>
-</header>
-<div class="wrap">
-<h1>Main <span>Hub</span></h1>
-<p class="sub">You have 3 repos. This repo <b>jinsoojang-da.github.io</b> is the root hub that links to them. Create this repo to fix the 404 at https://jinsoojang-da.github.io/</p>
-<div class="grid">
-<div class="card hub">
-<div style="font-size:2.2rem">📚</div>
-<h2>my-learning-blog</h2>
-<p class="sub" style="margin:8px 0 0;text-align:left;font-size:.9rem">Daily Blog + da-project 3 + learning-room (CSS 7 labs / JS DOM + Fotogram)</p>
-<a class="btn blue" href="https://jinsoojang-da.github.io/my-learning-blog/" target="_blank">Enter Learning Blog →</a>
-<div class="ext">
-<a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/MeinPC_Website/index.html" target="_blank">MeinPC</a>
-<a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/Reiseblog/index.html" target="_blank">Reiseblog</a>
-<a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/sakura_ramen_responsive/index.html" target="_blank">Sakura</a>
-</div>
-</div>
-<div class="card">
-<div style="font-size:2.2rem">📓</div>
-<h2>learning_diary</h2>
-<p class="sub" style="margin:8px 0 0;text-align:left;font-size:.9rem">Daily learning log - separate repo</p>
-<a class="btn green" href="https://jinsoojang-da.github.io/learning_diary/" target="_blank">Enter Diary →</a>
-</div>
-</div>
 
-<div class="note">
-HOW TO FIX 404:<br>
-1. Click New repository (green button in your screenshot)<br>
-2. Repository name: <b>jinsoojang-da.github.io</b> (exactly this, lowercase)<br>
-3. Public + Add a README<br>
-4. Create, then Add file → Create new file → name: <b>index.html</b> → paste this file's code → Commit<br>
-5. Settings → Pages → Branch: main / (root) → Save<br>
-6. Wait 1 min → https://jinsoojang-da.github.io/ will show this hub, not 404<br>
-After that, https://jinsoojang-da.github.io/my-learning-blog/ and /learning_diary/ and /JinSooJang-DA/ all remain working as separate project pages linked from here.
-</div>
-</div>
+  <!-- Header Navigation -->
+  <header>
+    <div class="logo">
+      <div class="logo-badge">J</div>
+      <span>Jin Soo Jang / Portfolio</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#da-projects">DA Curriculum</a></li>
+      <li><a href="#personal-projects">Personal Projects</a></li>
+      <li><a href="#learning-room">Learning Room</a></li>
+    </ul>
+  </header>
+
+  <div class="container">
+    
+    <!-- Hero Banner -->
+    <section class="hero">
+      <h1>Developer Journey & Project Hub</h1>
+      <p>Tracking progress, building personal ideas, and mastering modern web tech.</p>
+    </section>
+
+    <!-- 1. Developer Akademie Roadmap Section -->
+    <section id="da-projects">
+      <div class="section-title">
+        <h2>🎓 Developer Akademie Roadmap</h2>
+        <span class="badge-count">4 / 12 Completed</span>
+      </div>
+
+      <div class="grid-mini">
+        <!-- 01. Completed -->
+        <a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/MeinPC_Website/index.html" target="_blank" class="mini-card completed">
+          <div class="icon">🖥️</div>
+          <div class="title">MeinPC_Website</div>
+        </a>
+
+        <!-- 02. Completed -->
+        <a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/sakura_ramen_responsive/index.html" target="_blank" class="mini-card completed">
+          <div class="icon">🌸</div>
+          <div class="title">Sakura Responsive</div>
+        </a>
+
+        <!-- 03. Completed -->
+        <a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/Reiseblog/index.html" target="_blank" class="mini-card completed">
+          <div class="icon">✈️</div>
+          <div class="title">Travel Blog</div>
+        </a>
+
+        <!-- 04. Completed -->
+        <a href="https://jinsoojang-da.github.io/my-learning-blog/da-project/Fotogram/index.html" target="_blank" class="mini-card completed">
+          <div class="icon">📸</div>
+          <div class="title">Fotogram</div>
+        </a>
+
+        <!-- 05. Locked -->
+        <a href="#" class="mini-card locked">
+          <div class="icon">📖</div>
+          <div class="title">Bookstore</div>
+        </a>
+
+        <!-- 06. Locked -->
+        <a href="#" class="mini-card locked">
+          <div class="icon">🧺</div>
+          <div class="title">Ordering App</div>
+        </a>
+
+        <!-- 07. Locked -->
+        <a href="#" class="mini-card locked">
+          <div class="icon">⚡</div>
+          <div class="title">Pokedex</div>
+        </a>
+
+        <!-- 08. Locked -->
+        <a href="#" class="mini-card locked">
+          <div class="icon">📋</div>
+          <div class="title">Join (Kanban)</div>
+        </a>
+
+        <!-- 09. Locked -->
+        <a href="#" class="mini-card locked">
+          <div class="icon">🌮</div>
+          <div class="title">El Pollo Loco</div>
+        </a>
+
+        <!-- 10. Locked -->
+        <a href="#" class="mini-card locked">
+          <div class="icon">💼</div>
+          <div class="title">Portfolio</div>
+        </a>
+
+        <!-- 11. Locked -->
+        <a href="#" class="mini-card locked">
+          <div class="icon">📄</div>
+          <div class="title">CV / Resume</div>
+        </a>
+
+        <!-- 12. Locked -->
+        <a href="#" class="mini-card locked">
+          <div class="icon">🏆</div>
+          <div class="title">Final Certificate</div>
+        </a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 2. Personal Projects Section -->
+    <section id="personal-projects">
+      <div class="section-title">
+        <h2>🚀 Personal Projects</h2>
+        <span class="badge-count">Placeholders</span>
+      </div>
+
+      <div class="grid-mini">
+        <a href="#" class="mini-card completed">
+          <div class="icon">🎵</div>
+          <div class="title">Music Showcase</div>
+        </a>
+
+        <a href="#" class="mini-card locked">
+          <div class="icon">🐱</div>
+          <div class="title">My Project 2</div>
+        </a>
+
+        <a href="#" class="mini-card locked">
+          <div class="icon">🌐</div>
+          <div class="title">My Project 3</div>
+        </a>
+
+        <a href="#" class="mini-card locked">
+          <div class="icon">🛠️</div>
+          <div class="title">My Project 4</div>
+        </a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3. Learning Room & Lab Section -->
+    <section id="learning-room">
+      <div class="section-title">
+        <h2>🧪 Learning Room & Skill Labs</h2>
+      </div>
+
+      <div class="learning-grid">
+        <!-- 1. Active: HTML & CSS -->
+        <a href="https://jinsoojang-da.github.io/my-learning-blog/learning-room/CSS/index.html" target="_blank" class="learning-card active">
+          <div class="learning-header">
+            <div class="learning-icon bg-html">CSS</div>
+            <div class="learning-title">HTML & CSS Practice</div>
+          </div>
+          <p class="learning-desc">Layout exercises, Flexbox & Grid labs, CSS animations.</p>
+        </a>
+
+        <!-- 2. Active: JavaScript -->
+        <a href="https://jinsoojang-da.github.io/my-learning-blog/learning-room/JS/index.html" class="learning-card active">
+          <div class="learning-header">
+            <div class="learning-icon bg-js">JS</div>
+            <div class="learning-title">JavaScript Lab</div>
+          </div>
+          <p class="learning-desc">DOM manipulation, event handling, dynamic rendering experiments.</p>
+        </a>
+
+        <!-- 3. Expected: Async JS & REST APIs -->
+        <div class="learning-card upcoming">
+          <div class="learning-header">
+            <div class="learning-icon bg-api">API</div>
+            <div class="learning-title">Async JS & REST APIs</div>
+          </div>
+          <p class="learning-desc">Fetch API, Promises, Async/Await, external data integration.</p>
+        </div>
+
+        <!-- 4. Expected: Frontend Framework -->
+        <div class="learning-card upcoming">
+          <div class="learning-header">
+            <div class="learning-icon bg-fw">FW</div>
+            <div class="learning-title">Frontend Framework</div>
+          </div>
+          <p class="learning-desc">Component-based architecture, SPA state management (Angular / React).</p>
+        </div>
+
+        <!-- 5. Expected: Backend & Database Basics -->
+        <div class="learning-card upcoming">
+          <div class="learning-header">
+            <div class="learning-icon bg-backend">DB</div>
+            <div class="learning-title">Backend & Cloud Storage</div>
+          </div>
+          <p class="learning-desc">Firebase, RESTful Backends, Database fundamentals.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Jin Soo Jang. Built with passion at Developer Akademie.</p>
+    </footer>
+
+  </div>
+
 </body>
 </html>
