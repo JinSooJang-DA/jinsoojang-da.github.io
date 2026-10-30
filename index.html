@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JinSoo Jang · Web Developer</title>
-  <meta name="description" content="Songwriter and music producer, now building for the web. Projects, course work and labs by JinSoo Jang, Frankfurt.">
+  <meta name="description" content="Songwriter and music producer, now building for the web. Projects and course work by JinSoo Jang, Frankfurt.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,500;62..125,600;62..125,800&display=swap" rel="stylesheet">
@@ -278,28 +278,10 @@
       color: var(--muted);
     }
     .track .state { font-size: 0.85rem; white-space: nowrap; }
-    .track.done .state { color: var(--done); }
+    .track .state { color: var(--muted); }
     .track.wip .state { color: var(--wip); }
     .track.next { color: var(--muted); }
     .track.next .name { font-weight: 500; }
-
-    /* ---------- Labs ---------- */
-    .labs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .lab {
-      display: block;
-      text-decoration: none;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 22px;
-    }
-    .lab:hover { border-color: var(--ink); }
-    .lab strong { display: block; font-size: 1.15rem; margin-bottom: 4px; }
-    .lab span { color: var(--muted); font-size: 0.95rem; }
 
     /* ---------- Footer ---------- */
     footer {
@@ -337,7 +319,7 @@
       <a class="mark" href="#">JinSoo Jang</a>
       <nav>
         <a class="hide-sm" href="#projects">Projects</a>
-        <a class="hide-sm" href="#course">Course</a>
+        <a class="hide-sm" href="#course">Course work</a>
         <a href="https://github.com/JinSooJang-DA">GitHub</a>
         <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch color theme">Dark</button>
       </nav>
@@ -345,24 +327,24 @@
 
     <div class="hero">
       <h1>JinSoo Jang<span>songs, then software</span></h1>
-      <p>I spent years writing and producing Korean-language music. Now I build for the web — sites and apps for the Korean community in Germany, and whatever else I need myself. Based in Frankfurt.</p>
+      <p>I spent years writing and producing Korean-language music. Now I build for the web, from browser games to a community site for Koreans in Germany. Based in Frankfurt.</p>
       <div class="links">
         <a class="btn primary" href="#projects">See my projects</a>
         <a class="btn" href="https://github.com/JinSooJang-DA">GitHub profile</a>
       </div>
     </div>
 
-    <!-- =========== Personal projects =========== -->
+    <!-- =========== Featured projects =========== -->
     <section id="projects">
       <div class="section-head">
         <h2>Projects</h2>
-        <p>Things I build and run on my own, used by real people.</p>
+        <p>A community site I run, and the two course projects I'm proudest of.</p>
       </div>
 
       <article class="project">
         <div>
           <h3>German Hanguk</h3>
-          <p class="desc">A community platform for Koreans living in Germany: discussion board, news and practical information, plus language-tandem matching.</p>
+          <p class="desc">A community platform for Koreans living in Germany: discussion board, news and practical information, plus language-tandem matching. Designed, built and run on my own.</p>
           <ul class="stack"><li>Next.js</li><li>Supabase</li><li>Vercel</li></ul>
         </div>
         <div class="actions">
@@ -372,116 +354,63 @@
 
       <article class="project">
         <div>
-          <h3>Bookfinder</h3>
-          <p class="desc">Photograph your bookshelves and let AI recognise the books. Every book gets a place on a virtual shelf, so you always know where it is at home.</p>
-          <ul class="stack"><li>JavaScript</li><li>Firebase</li><li>Gemini AI</li><li>PWA</li></ul>
+          <h3>El Pollo Loco</h3>
+          <p class="desc">A 2D jump-and-run game in the browser. Run, jump and throw bottles past chickens to reach the final boss. Built with object-oriented JavaScript on the HTML canvas.</p>
+          <ul class="stack"><li>JavaScript</li><li>OOP</li><li>Canvas</li></ul>
         </div>
         <div class="actions">
-          <a class="btn" href="https://jinsoojang-da.github.io/bookfinder/">Open app</a>
-          <a class="btn" href="https://github.com/JinSooJang-DA/bookfinder">Code</a>
+          <a class="btn" href="https://jinsoojang-da.github.io/el-pollo-loco/">Play</a>
+          <a class="btn" href="https://github.com/JinSooJang-DA/el-pollo-loco">Code</a>
         </div>
       </article>
 
       <article class="project">
         <div>
-          <h3>Cinekorea 2.0 <span class="status">In development</span></h3>
-          <p class="desc">A Korean film database with regular articles, written for German-speaking film fans.</p>
-          <ul class="stack"><li>Supabase</li><li>Vercel</li></ul>
-        </div>
-        <div class="actions"></div>
-      </article>
-
-      <article class="project">
-        <div>
-          <h3>Todo Board</h3>
-          <p class="desc">A kanban-style board for sorting tasks into columns.</p>
-          <ul class="stack"><li>JavaScript</li><li>CSS Grid</li></ul>
+          <h3>Pokédex</h3>
+          <p class="desc">Browse and search Pokémon with live data from PokeAPI, and open any card for stats and details.</p>
+          <ul class="stack"><li>JavaScript</li><li>REST API</li><li>Async/Await</li></ul>
         </div>
         <div class="actions">
-          <a class="btn" href="https://jinsoojang-da.github.io/todolist/">Open app</a>
+          <a class="btn" href="https://jinsoojang-da.github.io/pokedex/">Open app</a>
+          <a class="btn" href="https://github.com/JinSooJang-DA/pokedex">Code</a>
         </div>
       </article>
     </section>
 
     <!-- =========== Developer Akademie =========== -->
-    <!-- To update: change a track's class (done / wip / next), its state text, and add the link. Then update the progress width and label. -->
+    <!-- To add a project: copy one <li class="track done"> block and change the link, name and description. -->
     <section id="course">
       <div class="section-head">
         <h2>Developer Akademie</h2>
-        <p>The front-end course I'm taking, project by project.</p>
+        <p>Course projects from my front-end training, in the order I built them.</p>
       </div>
-
-      <div class="progress" role="presentation"><i style="width: 58%"></i></div>
-      <p class="progress-label">7 of 12 projects finished</p>
 
       <ol class="tracks">
         <li class="track done">
-          <span class="name"><a href="https://jinsoojang-da.github.io/mypcworld/">MeinPC</a><span class="what">First website — HTML and CSS basics</span></span>
-          <span class="state">Finished</span>
-        </li>
-        <li class="track done">
           <span class="name"><a href="https://jinsoojang-da.github.io/sakuraramen/">Sakura Ramen</a><span class="what">Responsive restaurant page with Flexbox</span></span>
-          <span class="state">Finished</span>
+          <span class="state">HTML · CSS</span>
         </li>
         <li class="track done">
           <span class="name"><a href="https://jinsoojang-da.github.io/reiseblog/">Reiseblog</a><span class="what">Responsive travel blog</span></span>
-          <span class="state">Finished</span>
+          <span class="state">HTML · CSS</span>
         </li>
         <li class="track done">
           <span class="name"><a href="https://jinsoojang-da.github.io/fotogram/">Fotogram</a><span class="what">Photo gallery with a lightbox in JavaScript</span></span>
-          <span class="state">Finished</span>
+          <span class="state">HTML · CSS · JS</span>
         </li>
         <li class="track done">
-          <span class="name"><a href="#">Bookstore</a><span class="what">Book list rendered from data, with likes and comments</span></span>
-          <span class="state">Finished</span>
+          <span class="name"><a href="https://jinsoojang-da.github.io/bestellapp/">Ordering App</a><span class="what">Food ordering page with a shopping basket</span></span>
+          <span class="state">HTML · CSS · JS</span>
         </li>
         <li class="track done">
-          <span class="name"><a href="#">Ordering App</a><span class="what">Food ordering page with a shopping basket</span></span>
-          <span class="state">Finished</span>
+          <span class="name"><a href="https://jinsoojang-da.github.io/pokedex/">Pokédex</a><span class="what">Live data from PokeAPI with search and detail view</span></span>
+          <span class="state">JS · REST API</span>
         </li>
         <li class="track done">
-          <span class="name"><a href="#">Pokédex</a><span class="what">Live data from PokeAPI with search and detail view</span></span>
-          <span class="state">Finished</span>
-        </li>
-        <li class="track wip">
-          <span class="name">El Pollo Loco<span class="what">2D jump-and-run game in object-oriented JavaScript</span></span>
-          <span class="state">In progress</span>
-        </li>
-        <li class="track next">
-          <span class="name">Join<span class="what">Kanban project management app, built as a team</span></span>
-          <span class="state">Coming up</span>
-        </li>
-        <li class="track next">
-          <span class="name">Portfolio<span class="what">Personal portfolio site</span></span>
-          <span class="state">Coming up</span>
-        </li>
-        <li class="track next">
-          <span class="name">CV<span class="what">Application documents</span></span>
-          <span class="state">Coming up</span>
-        </li>
-        <li class="track next">
-          <span class="name">Certificate<span class="what">Course completion</span></span>
-          <span class="state">Coming up</span>
+          <span class="name"><a href="https://jinsoojang-da.github.io/el-pollo-loco/">El Pollo Loco</a><span class="what">2D jump-and-run game in object-oriented JavaScript</span></span>
+          <span class="state">JS · Canvas</span>
         </li>
       </ol>
-    </section>
-
-    <!-- =========== Labs =========== -->
-    <section id="labs">
-      <div class="section-head">
-        <h2>Labs</h2>
-        <p>Small experiments where I try one concept at a time.</p>
-      </div>
-      <div class="labs">
-        <a class="lab" href="/my-learning-blog/learning-room/CSS/">
-          <strong>CSS labs</strong>
-          <span>Seven exercises on layout, Flexbox, Grid and animation — no JavaScript.</span>
-        </a>
-        <a class="lab" href="/my-learning-blog/learning-room/JS/">
-          <strong>JavaScript lab</strong>
-          <span>DOM manipulation, events and rendering content from data.</span>
-        </a>
-      </div>
     </section>
 
     <footer>
