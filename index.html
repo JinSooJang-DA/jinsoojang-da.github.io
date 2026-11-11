@@ -231,26 +231,6 @@
     }
 
     /* ---------- Course tracklist ---------- */
-    .progress {
-      position: relative;
-      height: 4px;
-      background: var(--line);
-      border-radius: 99px;
-      margin-bottom: 8px;
-      overflow: hidden;
-    }
-    .progress i {
-      position: absolute;
-      inset: 0 auto 0 0;
-      background: var(--accent);
-      border-radius: 99px;
-    }
-    .progress-label {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
     .tracks { list-style: none; counter-reset: track; }
     .track {
       counter-increment: track;
@@ -277,11 +257,7 @@
       font-size: 0.92rem;
       color: var(--muted);
     }
-    .track .state { font-size: 0.85rem; white-space: nowrap; }
-    .track .state { color: var(--muted); }
-    .track.wip .state { color: var(--wip); }
-    .track.next { color: var(--muted); }
-    .track.next .name { font-weight: 500; }
+    .track .state { font-size: 0.85rem; white-space: nowrap; color: var(--muted); }
 
     /* ---------- Footer ---------- */
     footer {
@@ -304,11 +280,6 @@
       .project { grid-template-columns: 1fr; }
       .track { grid-template-columns: 2.25rem 1fr; }
       .track .state { grid-column: 2; }
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .progress i { animation: fill 1.2s cubic-bezier(.2,.7,.2,1) both; }
-      @keyframes fill { from { width: 0; } }
     }
   </style>
 </head>
@@ -358,95 +329,3 @@
           <p class="desc">A 2D jump-and-run game in the browser. Run, jump and throw bottles past chickens to reach the final boss. Built with object-oriented JavaScript on the HTML canvas.</p>
           <ul class="stack"><li>JavaScript</li><li>OOP</li><li>Canvas</li></ul>
         </div>
-        <div class="actions">
-          <a class="btn" href="https://jinsoojang-da.github.io/el-pollo-loco/">Play</a>
-          <a class="btn" href="https://github.com/JinSooJang-DA/el-pollo-loco">Code</a>
-        </div>
-      </article>
-
-      <article class="project">
-        <div>
-          <h3>Pokédex</h3>
-          <p class="desc">Browse and search Pokémon with live data from PokeAPI, and open any card for stats and details.</p>
-          <ul class="stack"><li>JavaScript</li><li>REST API</li><li>Async/Await</li></ul>
-        </div>
-        <div class="actions">
-          <a class="btn" href="https://jinsoojang-da.github.io/pokedex/">Open app</a>
-          <a class="btn" href="https://github.com/JinSooJang-DA/pokedex">Code</a>
-        </div>
-      </article>
-    </section>
-
-    <!-- =========== Developer Akademie =========== -->
-    <!-- To add a project: copy one <li class="track done"> block and change the link, name and description. -->
-    <section id="course">
-      <div class="section-head">
-        <h2>Developer Akademie</h2>
-        <p>Course projects from my front-end training, in the order I built them.</p>
-      </div>
-
-      <ol class="tracks">
-        <li class="track done">
-          <span class="name"><a href="https://jinsoojang-da.github.io/sakuraramen/">Sakura Ramen</a><span class="what">Responsive restaurant page with Flexbox</span></span>
-          <span class="state">HTML · CSS</span>
-        </li>
-        <li class="track done">
-          <span class="name"><a href="https://jinsoojang-da.github.io/reiseblog/">Reiseblog</a><span class="what">Responsive travel blog</span></span>
-          <span class="state">HTML · CSS</span>
-        </li>
-        <li class="track done">
-          <span class="name"><a href="https://jinsoojang-da.github.io/fotogram/">Fotogram</a><span class="what">Photo gallery with a lightbox in JavaScript</span></span>
-          <span class="state">HTML · CSS · JS</span>
-        </li>
-        <li class="track done">
-          <span class="name"><a href="https://jinsoojang-da.github.io/bestellapp/">Ordering App</a><span class="what">Food ordering page with a shopping basket</span></span>
-          <span class="state">HTML · CSS · JS</span>
-        </li>
-        <li class="track done">
-          <span class="name"><a href="https://jinsoojang-da.github.io/pokedex/">Pokédex</a><span class="what">Live data from PokeAPI with search and detail view</span></span>
-          <span class="state">JS · REST API</span>
-        </li>
-        <li class="track done">
-          <span class="name"><a href="https://jinsoojang-da.github.io/el-pollo-loco/">El Pollo Loco</a><span class="what">2D jump-and-run game in object-oriented JavaScript</span></span>
-          <span class="state">JS · Canvas</span>
-        </li>
-      </ol>
-    </section>
-
-    <footer>
-      <span>© 2026 JinSoo Jang · Frankfurt am Main</span>
-      <a href="https://github.com/JinSooJang-DA">github.com/JinSooJang-DA</a>
-    </footer>
-
-  </div>
-
-  <script>
-    // Theme: follows the system setting until the visitor picks one.
-    const root = document.documentElement;
-    const btn = document.getElementById('themeBtn');
-
-    function currentTheme() {
-      const set = root.getAttribute('data-theme');
-      if (set) return set;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-
-    function updateButton() {
-      btn.textContent = currentTheme() === 'dark' ? 'Light' : 'Dark';
-    }
-
-    try {
-      const saved = localStorage.getItem('theme');
-      if (saved) root.setAttribute('data-theme', saved);
-    } catch (e) {}
-    updateButton();
-
-    btn.addEventListener('click', () => {
-      const next = currentTheme() === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
-      updateButton();
-    });
-  </script>
-</body>
-</html>
